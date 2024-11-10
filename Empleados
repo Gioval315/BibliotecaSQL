@@ -1,3 +1,28 @@
 /*Creacion de base de datos*/
 CREATE DATABASE Empresa;
 
+/*Creacion de tabla y agregar informacion*/
+USE Empleados;
+CREATE TABLE Empleados (
+    Id_empl INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50),
+    Cargo VARCHAR(50),
+    Salario  INT);
+
+INSERT INTO Empleados (nombre, cargo, salario) VALUES
+    ('Juan Pérez', 'Gerente', 7500000),
+    ('Ana Gómez', 'Desarrollador', 6000000),
+    ('Luis Castro', 'Proyectos', 10000000);
+
+/*Creacion de tabla y agregar informacion*/
+CREATE TABLE Cargo (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_cargo VARCHAR(50),
+    salario INT,
+    descripcion VARCHAR(255));
+
+USE Empresa;
+INSERT INTO Cargo (Nombre_cargo, Salario, Descripcion) VALUES
+    ('Gerente', 500000, 'Responsable de la gestión y dirección general'),
+    ('Asistente', 250000, 'Soporte administrativo y asistencia'),
+    ('Desarrollador', 400000, 'Desarrollo de software y soluciones tecnológicas');
