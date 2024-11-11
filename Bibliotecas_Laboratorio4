@@ -83,3 +83,66 @@ INSERT INTO Prestamos (ID_Usuario, ID_Libro, Fecha_Prestamo, Fecha_Devolucion)
 VALUES 
     (1, 1, '2024-08-01', '2024-08-15'),
     (2, 2, '2024-08-02', '2024-08-16');
+
+
+
+
+
+-- Comandos de DML Biblioteca--
+
+/*a)	Actualizar la disponibilidad de un libro (marcarlo como no disponible después de un préstamo)*/
+USE Bibilioteca;
+UPDATE 	Libros
+SET Disponible = 0
+WHERE Titulo = 'Cien Años de Soledad'
+
+
+/*	Actualizar la fecha de devolución de un préstamo.*/
+USE Bibilioteca;
+UPDATE 	Prestamos
+SET Fecha_Prestamo ='2024-11-11'
+WHERE ID_Usuario = 1
+
+/*c)	Eliminar un libro de la base de datos */
+
+USE Bibilioteca;
+
+DELETE FROM Prestamos
+WHERE Id_libro = 2;
+
+DELETE FROM Libros
+WHERE Id_libro = 2;
+
+
+/*a)	Seleccionar todos los libros:*/
+USE Bibilioteca;
+SELECT *
+FROM  Libros
+
+
+/*b)	Seleccionar todos los autores*/
+
+USE Bibilioteca;
+SELECT *
+FROM  Autores
+
+
+/*c)	Seleccionar el libro de Gabriel García Márquez*/
+
+USE Bibilioteca;
+SELECT 
+*
+FROM  Autores AS A
+LEFT JOIN
+	Libros AS L ON A.Id_autor = L.Id_autor
+WHERE	
+	A.Nombre = 'Gabriel Garcia Marquez'
+
+/*d)	Mostrar los libros devueltos en el mes 8 de la tabla prestamos del año 2024, puedes filtrar por el mes en la columna Fecha_Devolucion.*/
+
+USE Bibilioteca;
+SELECT 
+*
+FROM  Prestamos
+WHERE	
+	Fecha_Devolucion BETWEEN '2024-08-01' AND '2024-08-30'
